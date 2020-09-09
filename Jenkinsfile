@@ -1,4 +1,5 @@
 def readfile
+def var1
 pipeline{
  agent any
  stages {
@@ -15,8 +16,8 @@ pipeline{
        stage('properties') {
         steps {
 		 readfile = readProperties file:'build.properties'
-         def var1= readfile['project']
-         echo "The Application name is' - ${readfile['project']}"
+         var1 = readfile['project']
+         echo "The Application name is' - ${var1}"
        }
        }
  }
