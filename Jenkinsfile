@@ -11,5 +11,12 @@ pipeline{
           echo 'We are doing code coverage test now'
        }
        }
+       stage('Read') {
+        steps {
+		 def readfile = readProperties file: 'build.properties'
+         def var1= readfile['project']
+         echo "The Application name is' - ${readfile['project']}"
+       }
+       }
  }
 }
