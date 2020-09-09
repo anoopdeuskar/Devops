@@ -1,4 +1,4 @@
-def readfile
+def readfile;
 pipeline {
          agent any
          stages {
