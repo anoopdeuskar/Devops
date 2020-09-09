@@ -1,6 +1,14 @@
+def readfile
 pipeline {
          agent any
          stages {
+				  stage('Read Properties') {
+                 steps {
+                    echo 'Property file values are being fetched'
+					readfile = readproperties file: 'build.properties'
+					echo 'The Application name is - ${readfile['project.name']}'
+                 }
+                 }
                  stage('Build') {
                  steps {
                      echo 'Hi, this is Anoop'
