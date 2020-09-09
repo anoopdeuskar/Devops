@@ -1,15 +1,16 @@
 pipeline {
          agent any
          stages {
-                 stage('checkout') {
+                 stage('Build') {
                  steps {
                      echo 'Hi, this is Anoop'
 					 echo 'We are now checking out code from GIT'
+					 input('Do you want to proceed?')
                  }
                  }
-                 stage('Build') {
+                 stage('Code Coverage') {
                  steps {
-                    input('Do you want to proceed?')
+                    
                  }
                  }
          }
