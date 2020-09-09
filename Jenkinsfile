@@ -1,25 +1,9 @@
-pipeline {
-         agent any
-         stages {
-         
-				 stage('Read') {
-                 steps {
-					def readfile = readProperties file: 'build.properties'
-                    def var1= readfile['project']
-					echo "var1=${var1}"
-                 }
-                 }
-                 stage('Build') {
-                 steps {
-                     echo 'Hi, this is Anoop'
-					 echo 'We are now checking out code from GIT'
-					 input('Do you want to proceed?')
-                 }
-                 }
-                 stage('Code Coverage') {
-                 steps {
-                    echo 'We are doing code coverage test now'
-                 }
-                 }
-				 }
-         }  
+pipeline{
+ agent any
+ stages {
+      stage ('Read')
+      steps {
+          echo "Hello"
+      }
+ }
+}
