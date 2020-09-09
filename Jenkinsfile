@@ -1,5 +1,3 @@
-def readfile
-def var1
 pipeline{
  agent any
  stages {
@@ -13,11 +11,12 @@ pipeline{
           echo 'We are doing code coverage test now'
        }
        }
-       stage('properties') {
+       stage('prepare') {
         steps {
-		 readfile = readProperties file:'build.properties'
-         var1 = readfile['project']
-         echo "The Application name is - ${var1}"
+        script{
+		 properties = readProperties file:'build.properties'
+         echo "The Application name is - ${properties.project}"
+         }
        }
        }
  }
