@@ -1,12 +1,11 @@
-def readfile;
 pipeline {
          agent any
          stages {
          
 				 stage('Read') {
                  steps {
-					readfile = readProperties 'build.properties'
-					echo "The Application name is' - ${readfile[project]}"
+					def readfile = readProperties file: 'build.properties'
+					echo "The Application name is' - ${readfile['project']}"
                  }
                  }
                  stage('Build') {
