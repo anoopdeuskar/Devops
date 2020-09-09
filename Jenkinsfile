@@ -17,7 +17,7 @@ pipeline{
         steps {
 		 readfile = readProperties file:'build.properties'
          var1 = readfile['project']
-         echo "The Application name is' - ${var1}"
+         echo "The Application name is - ${var1}"
        }
        }
  }
