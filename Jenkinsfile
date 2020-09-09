@@ -11,7 +11,7 @@ pipeline{
           echo 'We are doing code coverage test now'
        }
        }
-       stage('Read') {
+       stage('properties') {
         steps {
 		 def readfile = readProperties file: 'build.properties'
          def var1= readfile['project']
