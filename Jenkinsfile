@@ -5,8 +5,8 @@ pipeline {
 				 stage('Read') {
                  steps {
                     echo 'Property file values are being fetched'
-					def readfile = readproperties 'build.properties'
-					echo 'The Application name is' - ${readfile.project}
+					def readfile = readproperties file: 'build.properties'
+					echo "The Application name is' - ${readfile[project]}"
                  }
                  }
                  stage('Build') {
