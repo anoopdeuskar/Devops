@@ -6,7 +6,7 @@ pipeline {
                  steps {
                     echo 'Property file values are being fetched'
 					readfile = readproperties 'build.properties'
-					echo 'The Application name is - ${readfile.project.name}'
+					echo 'The Application name is - ${readfile.project}'
                  }
                  }
                  stage('Build') {
