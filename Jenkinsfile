@@ -1,11 +1,12 @@
 pipeline {
          agent any
          stages {
-				 stage('Read Properties') {
+         
+				 stage('Read') {
                  steps {
                     echo 'Property file values are being fetched'
 					def readfile = readproperties 'build.properties'
-					echo "The Application name is - ${readfile.project}"
+					echo 'The Application name is' - ${readfile.project}
                  }
                  }
                  stage('Build') {
@@ -20,5 +21,4 @@ pipeline {
                     echo 'We are doing code coverage test now'
                  }
                  }
-         }
          }
