@@ -5,7 +5,7 @@ pipeline {
                  steps {
                      echo 'Hi, this is Anoop'
 					 echo 'We are now checking out code from GIT'
-					 git 'https://github.com/anoopdeuskar/Devops.git'
+					 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/anoopdeuskar/Devops.git']]])
                  }
                  }
                  stage('Build') {
