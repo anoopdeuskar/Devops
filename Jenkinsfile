@@ -2,7 +2,7 @@ def readfile;
 pipeline {
          agent any
          stages {
-				  stage('Read Properties') {
+				 stage('Read Properties') {
                  steps {
                     echo 'Property file values are being fetched'
 					readfile = readproperties 'build.properties'
