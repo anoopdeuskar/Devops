@@ -5,7 +5,7 @@ pipeline {
          
 				 stage('Read') {
                  steps {
-					readfile = readProperties file: 'build.properties'
+					readfile = readProperties 'build.properties'
 					echo "The Application name is' - ${readfile[project]}"
                  }
                  }
