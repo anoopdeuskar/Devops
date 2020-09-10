@@ -19,5 +19,12 @@ pipeline{
          }
        }
        }
+       stage('prepare') {
+        steps {
+        script{
+         echo "The Application version is - ${properties.version}"
+         }
+       }
+       }
  }
 }
