@@ -30,10 +30,10 @@ pipeline{
       steps {
       script{
       def scannerhome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-      withCredentials {[string(creadentialsId: 'sonar', variable: 'sonarlogin')]} {
+      withCredentials {[string(creadentialsId: 'sonar', variable: 'sonarlogin')] 
       sh """${scannerhome}/bin/sonar-scanner -e -Dsonar.host.url=http://localhost:9000 -Dsonar.login=${sonarlogin}"""
       }
       }
       }
+      }
 }
- }
