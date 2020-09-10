@@ -1,22 +1,22 @@
 pipeline{
  agent any
  stages {
-      stage ('Greet'){
+       stage('property_check') {
+       steps {
+          echo 'We are doing property checks now'
+       }
+       }
+      stage ('Build'){
       steps {
-          echo "Hello"
+          echo "Code is now being Build"
       }
       }
-       stage('Code Coverage') {
-        steps {
-          echo 'We are doing code coverage test now'
+      stage('Test') {
+      steps {
+      script{
+	  properties = readProperties file:'build.properties'
+      echo "The Application name is - ${properties.project}"
        }
-       }
-       stage('Build') {
-        steps {
-        script{
-		 properties = readProperties file:'build.properties'
-         echo "The Application name is - ${properties.project}"
-         }
        }
        }
        stage('version') {
