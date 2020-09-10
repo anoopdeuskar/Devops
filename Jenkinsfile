@@ -26,14 +26,11 @@ pipeline{
          }
        }
        }
-      stage('SonarQube_analysis') {
-      steps {
-      script{
-      def scannerhome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-      withCredentials([string(credentialsId: 'Sonar', variable: 'sonarlogin')])
-      sh """${scannerhome}/bin/sonar-scanner -e -Dsonar.host.url=http://localhost:9000 -Dsonar.login=${sonarlogin}"""
-      }
-      }
-      }
-      }
+    stage('SonarQube analysis') {
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv('Sonar') { // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+    }
+    }
 }
