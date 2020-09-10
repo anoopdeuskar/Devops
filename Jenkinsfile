@@ -27,9 +27,13 @@ pipeline{
        }
        }
     stage('SonarQube_analysis') {
+    steps {
+    script {
     def scannerHome = tool 'SonarScanner';
     withSonarQubeEnv('Sonar') { // If you have configured more than one global server connection, you can specify its name
       bat "${scannerHome}/bin/sonar-scanner"
+      }
+      }
     }
     }
     }
