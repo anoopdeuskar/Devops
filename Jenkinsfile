@@ -1,7 +1,7 @@
 pipeline{
  agent any
  stages {
-      stage ('Read'){
+      stage ('Greet'){
       steps {
           echo "Hello"
       }
@@ -11,7 +11,7 @@ pipeline{
           echo 'We are doing code coverage test now'
        }
        }
-       stage('prepare') {
+       stage('Build') {
         steps {
         script{
 		 properties = readProperties file:'build.properties'
@@ -19,7 +19,7 @@ pipeline{
          }
        }
        }
-       stage('prepare') {
+       stage('version') {
         steps {
         script{
          echo "The Application version is - ${properties.version}"
