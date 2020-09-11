@@ -16,14 +16,8 @@ pipeline{
       script{
 	  properties = readProperties file:'build.properties'
       echo "The Application name is - ${properties.project}"
+      echo "The Application version is - ${properties.version}"
        }
-       }
-       }
-       stage('version') {
-        steps {
-        script{
-         echo "The Application version is - ${properties.version}"
-         }
        }
        }
     stage('SonarQube_analysis') {
